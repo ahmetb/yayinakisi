@@ -50,6 +50,8 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private static final String APP_TAG = "YayinAkisiApp";
 	
 	private static final String LOCAL_FILE = "akis.json";
+
+	private static final long ALLOWED_DIFF_MINS = 6*60;
 	
 	private static ListView channelList;
 	
@@ -68,7 +70,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		Log.d(APP_TAG, "Yayin Akisi uygulamasi girisi.");
+		Log.d(APP_TAG, "Activity starting.");
 		setContentView(R.layout.main);
 		super.onCreate(savedInstanceState);
 		channelList = (ListView) findViewById(R.id.channelList);
@@ -80,8 +82,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		
 		channelList.setAdapter(clAdapter);
 		channelList.setOnItemClickListener(firstThread);
-			
-		//startService(new Intent(MainActivity.this, ReminderService.class));
 		
 		refresh(); // exec app
 	}
@@ -170,29 +170,19 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			return false;
 		}
 		
-		Date lastMod = new Date(f.lastModified());
-		Date curDate = new Date();
+		long diffMins = (System.currentTimeMillis()-f.lastModified())/(1000*60);
+		Log.d(APP_TAG, "Modification time of local file: "+new Date(f.lastModified()));
+		Log.d(APP_TAG, "Now time is: "+new Date(System.currentTimeMillis()));
+
+		Log.d(APP_TAG, "Difference minutes: "+diffMins);
 		
-		Calendar o = Calendar.getInstance(); o.setTime(lastMod);
-		Calendar c = Calendar.getInstance(); o.setTime(curDate);
-		
-		int o_hashsum = o.get(Calendar.DAY_OF_MONTH)+o.get(Calendar.MONTH)+o.get(Calendar.YEAR); 
-		int c_hashsum = c.get(Calendar.DAY_OF_MONTH)+c.get(Calendar.MONTH)+c.get(Calendar.YEAR);
-		
-		if (o_hashsum != c_hashsum){ // day month or year different not valid
-			Log.d(APP_TAG, " Hashsums are different."+lastMod+"-"+curDate);
+		// check whether recent 12 hours (abs h1-h2
+		if(diffMins > ALLOWED_DIFF_MINS){
+			Log.d(APP_TAG, " 12 hours are expired.");
 			return false;
 		} else {
-			// check whether recent 12 hours (abs h1-h2
-			int ho = o.get(Calendar.HOUR_OF_DAY);
-			int hc = c.get(Calendar.HOUR_OF_DAY);
-			if(Math.abs(ho-hc)>12){
-				Log.d(APP_TAG, " 12 Hours are expired."+ho+"-"+hc);
-				return false;
-			} else {
-				Log.d(APP_TAG, " Offline file is OK.");
-				return true;
-			}
+			Log.d(APP_TAG, " Offline file is OK.");
+			return true;
 		}
 	}
 	
