@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Yayın Akışı</string>
+    <string name="channels">Kanallar</string>
+    <string name="programs">Programlar</string>
+    <string name="date">Tarih</string>
+    <string name="daily_json_url">http://tv-stream.appspot.com/daily.json</string>
+    <string name="connection_error">Hata: Bağlantınızı kontrol edin.</string>
+    <string name="loading">Yükleniyor...</string>
+    <string name="please_wait">Lütfen bekleyiniz...</string>
+    <string name="about">Hakkında</string>
+    <string name="exit">Çıkış</string>
+    <string name="author">Ahmet Alp Balkan</string>
+    <string name="author_mail">ahmetalpbalkan@gmail.com</string>
+    <string name="author_site">www.ahmetalpbalkan.com</string>
+    <string name="error">Hata Oluştu</string>
+    <string name="refresh">Tazele</string>
+</resources>
