@@ -4,7 +4,7 @@
     <string name="channels">Kanallar</string>
     <string name="programs">Programlar</string>
     <string name="date">Tarih</string>
-    <string name="daily_json_url">http://tv-stream.appspot.com/daily.json</string>
+    <string name="daily_json_url">http://yayinakisi.herokuapp.com/daily.json</string>
     <string name="connection_error">Hata: Bağlantınızı kontrol edin.</string>
     <string name="loading">Yükleniyor...</string>
     <string name="please_wait">Lütfen bekleyiniz...</string>

@@ -3,11 +3,10 @@ package com.avior.yayinakisi;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.avior.yayinakisi.R;
-import com.avior.yayinakisi.R.drawable;
 import com.avior.yayinakisi.model.Channel;
 
 public class ChannelImageProvider {
+	@SuppressWarnings("serial")
 	private static Map<Integer, Integer> channelMap = new HashMap<Integer, Integer>(){{
 		put(1, R.drawable.atv);
 		put(2, R.drawable.cnbce);

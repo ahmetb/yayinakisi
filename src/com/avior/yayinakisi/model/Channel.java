@@ -5,8 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import android.util.Log;
-
 public class Channel {
 	private String name;
 	

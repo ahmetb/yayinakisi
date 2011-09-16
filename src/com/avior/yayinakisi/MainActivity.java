@@ -9,7 +9,6 @@ import java.io.OutputStreamWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -24,8 +23,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -35,13 +34,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
-import com.avior.yayinakisi.R;
 import com.avior.yayinakisi.model.Channel;
 import com.avior.yayinakisi.model.Program;
 import com.avior.yayinakisi.util.UrlOpener;
@@ -225,9 +223,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				osw.write(pageContents);
 				osw.flush();
 				osw.close();
-			} else {
-				throw new IOException("Could not initialize OutputStreamWriter.");
-			}
+			} 
 		} catch(IOException e){
 			Log.e(APP_TAG, "Could not write downloaded contents to the local file!");
 			Log.e(APP_TAG, e.toString());
@@ -308,6 +304,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	}
 	
 	
+	@SuppressWarnings("unused")
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuItem refreshItem = menu.add(0, REFRESH_ITEM, Menu.NONE, getString(R.string.refresh));

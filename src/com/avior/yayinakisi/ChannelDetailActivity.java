@@ -14,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.avior.yayinakisi.ChannelImageProvider;
-import com.avior.yayinakisi.ProgramAdapter;
-import com.avior.yayinakisi.R;
 import com.avior.yayinakisi.model.Channel;
 import com.avior.yayinakisi.model.Program;
 
@@ -63,6 +60,7 @@ public class ChannelDetailActivity extends Activity {
 		this.programList.setAdapter(plAdapter);
 	}
 	
+	@SuppressWarnings("unused")
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuItem aboutItem = menu.add(0, ABOUT_ITEM, Menu.NONE, getString(R.string.about));

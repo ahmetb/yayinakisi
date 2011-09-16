@@ -10,9 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.avior.yayinakisi.R;
-import com.avior.yayinakisi.R.id;
-import com.avior.yayinakisi.R.layout;
 import com.avior.yayinakisi.model.Channel;
 import com.avior.yayinakisi.model.Program;
 

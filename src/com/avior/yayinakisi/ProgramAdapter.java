@@ -3,18 +3,12 @@ package com.avior.yayinakisi;
 import java.util.List;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.avior.yayinakisi.R;
-import com.avior.yayinakisi.R.id;
-import com.avior.yayinakisi.R.layout;
-import com.avior.yayinakisi.model.Channel;
 import com.avior.yayinakisi.model.Program;
 
 class ProgramAdapter extends ArrayAdapter<Program> {
